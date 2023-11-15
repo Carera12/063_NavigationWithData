@@ -118,7 +118,7 @@ fun cancelOrderAndNavigateToHome(
     viewModel: OrderViewModel,
     navController: NavHostController) {
     viewModel.resetOrder()
-    navController.popBackStack(PengelolaHalaman.Home.name, inclusive = false)
+    navController.popBackStack(PengelolaHalaman.Formulir.name, inclusive = false)
 }
 
 
