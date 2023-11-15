@@ -8,11 +8,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -56,17 +58,16 @@ fun HalamanNama(
         Column (modifier = Modifier.padding(20.dp)) {
         OutlinedTextField(modifier = Modifier.fillMaxWidth(),
             value = namaTxt,
-            shape = MaterialTheme.shapes.large,
             label = { Text(text = stringResource(id = R.string.nama)) },
             onValueChange = {namaTxt = it})
+            Spacer(modifier = Modifier.padding(15.dp))
         OutlinedTextField(modifier = Modifier.fillMaxWidth(),
             value = telponTxt,
-            shape = MaterialTheme.shapes.large,
             label = { Text(text = stringResource(id = R.string.no_tlp)) },
             onValueChange = {telponTxt = it})
+            Spacer(modifier = Modifier.padding(15.dp))
             OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                 value = alamatTxt,
-                shape = MaterialTheme.shapes.large,
                 label = { Text(text = stringResource(id = R.string.alamat)) },
                 onValueChange = {alamatTxt = it})
         Spacer(modifier = Modifier.padding(16.dp))
@@ -80,13 +81,13 @@ fun HalamanNama(
             horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
             verticalAlignment = Alignment.Bottom
         ) {
-            OutlinedButton(
+            ElevatedButton(
                 modifier = Modifier.weight(1f),
                 onClick = onCancelButtonClicked
             ) {
                 Text(stringResource(R.string.cancel))
             }
-            OutlinedButton(
+            ElevatedButton(
                 modifier = Modifier.weight(1f),
                 onClick = {onSubmitButtonClick(listDataTxt)}
             ) {
