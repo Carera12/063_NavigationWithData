@@ -99,9 +99,10 @@ fun EsJumboApp(
             composable(route = PengelolaHalaman.Summary.name) {
                 HalamanDua(
                     orderUIState = uiState,
-                    onCancelButtonClicked = { cancelOrderAndNavigateToRasa(navController) }
-                    //onSendButtonClicked = {subject: String, summary: String -> }
-                )
+                    onCancelButtonClicked = { cancelOrderAndNavigateToRasa(navController) },
+                    onClickBackButton = {
+                        navController.popBackStack(PengelolaHalaman.Rasa.name, false)
+                    })
             }
         }
 
