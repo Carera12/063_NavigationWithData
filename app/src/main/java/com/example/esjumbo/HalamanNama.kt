@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HalamanNama(
+    onNextButtonClicked: () -> Unit,
     onCancelButtonClicked: () -> Unit,
     //onSubmitButtonClick: (MutableList<String>) -> Unit
 ) {
@@ -75,6 +76,11 @@ fun HalamanNama(
             OutlinedButton(modifier = Modifier.weight(1f),
                 onClick = onCancelButtonClicked){
                 Text(stringResource(R.string.cancel))
+            }
+            Button(modifier = Modifier.weight(1f),
+                onClick = onNextButtonClicked
+            ) {
+                Text(stringResource(R.string.next))
             }
         }
     }
