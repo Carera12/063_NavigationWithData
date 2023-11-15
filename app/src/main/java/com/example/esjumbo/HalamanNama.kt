@@ -37,10 +37,10 @@ fun HalamanNama(
     var namaTxt by rememberSaveable {
         mutableStateOf("")
     }
-    var alamatTxt by remember {
+    var alamatTxt by rememberSaveable {
         mutableStateOf("")
     }
-    var telponTxt by remember {
+    var telponTxt by rememberSaveable {
         mutableStateOf("")
     }
     var listDataTxt: MutableList<String> = mutableListOf(namaTxt, alamatTxt, telponTxt)
