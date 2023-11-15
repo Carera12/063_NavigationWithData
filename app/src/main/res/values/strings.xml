@@ -17,7 +17,7 @@
     <string name="total_price">Total %s</string>
     <string name="nama">Name</string>
     <string name="alamat">Address</string>
-    <string name="Submit">Submit</string>
+    <string name="lanjut">Selanjutnya</string>
     <string name="back">Back</string>
     <string name="no_tlp">Phone</string>
 </resources>

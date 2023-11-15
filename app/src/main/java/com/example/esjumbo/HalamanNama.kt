@@ -86,11 +86,11 @@ fun HalamanNama(
             ) {
                 Text(stringResource(R.string.cancel))
             }
-            Button(
+            OutlinedButton(
                 modifier = Modifier.weight(1f),
                 onClick = {onSubmitButtonClick(listDataTxt)}
             ) {
-                Text(stringResource(R.string.next))
+                Text(stringResource(R.string.lanjut))
             }
         }
     }
