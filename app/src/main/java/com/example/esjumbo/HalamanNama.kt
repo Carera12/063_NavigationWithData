@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -22,14 +23,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HalamanNama(
-    onNextButtonClicked: () -> Unit,
+    //onNextButtonClicked: () -> Unit,
     onCancelButtonClicked: () -> Unit,
-    //onSubmitButtonClick: (MutableList<String>) -> Unit
+    onSubmitButtonClick: (MutableList<String>) -> Unit
 ) {
     var namaTxt by rememberSaveable {
         mutableStateOf("")
@@ -49,22 +52,26 @@ fun HalamanNama(
             .padding(16.dp)
             .fillMaxSize()
     ){
-        OutlinedTextField(value = namaTxt, onValueChange = {
-            namaTxt = it
-        }, label = {
-            Text(text = "Nama")
-        })
-        OutlinedTextField(value = alamatTxt, onValueChange = {
-            alamatTxt = it
-        }, label = {
-            Text(text = "Alamat")
-        })
-        OutlinedTextField(value = telponTxt, onValueChange = {
-            telponTxt = it
-        }, label = {
-            Text(text = "No Telepon")
-        })
+        Text(text = "Data Pelanggan", fontWeight = FontWeight.Bold, fontSize = 25.sp)
+        Column (modifier = Modifier.padding(20.dp)) {
+        OutlinedTextField(modifier = Modifier.fillMaxWidth(),
+            value = namaTxt,
+            shape = MaterialTheme.shapes.large,
+            label = { Text(text = stringResource(id = R.string.nama)) },
+            onValueChange = {namaTxt = it})
+        OutlinedTextField(modifier = Modifier.fillMaxWidth(),
+            value = telponTxt,
+            shape = MaterialTheme.shapes.large,
+            label = { Text(text = stringResource(id = R.string.no_tlp)) },
+            onValueChange = {telponTxt = it})
+            OutlinedTextField(modifier = Modifier.fillMaxWidth(),
+                value = alamatTxt,
+                shape = MaterialTheme.shapes.large,
+                label = { Text(text = stringResource(id = R.string.alamat)) },
+                onValueChange = {alamatTxt = it})
         Spacer(modifier = Modifier.padding(16.dp))
+
+        }
         Row (
             modifier = Modifier
                 .fillMaxWidth()
@@ -72,13 +79,16 @@ fun HalamanNama(
                 .weight(1f, false),
             horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
             verticalAlignment = Alignment.Bottom
-        ){
-            OutlinedButton(modifier = Modifier.weight(1f),
-                onClick = onCancelButtonClicked){
+        ) {
+            OutlinedButton(
+                modifier = Modifier.weight(1f),
+                onClick = onCancelButtonClicked
+            ) {
                 Text(stringResource(R.string.cancel))
             }
-            Button(modifier = Modifier.weight(1f),
-                onClick = onNextButtonClicked
+            Button(
+                modifier = Modifier.weight(1f),
+                onClick = {onSubmitButtonClick(listDataTxt)}
             ) {
                 Text(stringResource(R.string.next))
             }
